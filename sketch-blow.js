@@ -8,7 +8,8 @@ function sketchBlow(p) {
   let boxX, boxY, boxW, boxH;
 
   p.preload = function() {
-    bodySegmentation = ml5.bodySegmentation("BodyPix", { flipped: true });
+    bodySegmentation = ml5.bodySegmentation("BodyPix", { flipped: true, internalResolution: "low",
+    segmentationThreshold: 0.4 });
     faceMesh = ml5.faceMesh(options);
   };
 
