@@ -106,7 +106,7 @@ function sketchBlow(p) {
     }
   }
 
-  .draw = function () {
+  p.draw = function () {
     p.background(224, 255, 0);
 
     // Draw skeleton
