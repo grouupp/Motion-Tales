@@ -78,7 +78,7 @@ function sketchNose(p) {
   }
 
   p.draw = function () {
-    p.background(224, 255, 0);
+    p.background(0, 200, 0);
 
     // Draw skeleton
     if (poses && poses.length > 0) {
