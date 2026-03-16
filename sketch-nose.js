@@ -33,9 +33,8 @@ function sketchNose(p) {
       console.log("BlazePose ready");
       bodyPose.detectStart(video, r => poses = r);
     });
-    faceMesh = ml5.faceMesh({ flipped: true }, () => {
-      faceMesh.detectStart(video, r => faces = r);
-    });
+    faceMesh = ml5.faceMesh({ maxFaces: 1, refineLandmarks: false, flipped: true });
+    faceMesh.detectStart(video, r => { faces = r; });
     setupBox();
     initWords();
   };
@@ -153,7 +152,8 @@ function sketchNose(p) {
     // Nose indicator — FIXED: was noFill + noStroke (invisible)
     if (smoothNoseX !== undefined) {
       p.noFill();
-      p.noStroke();
+      p.stroke(0, 80);
+      p.strokeWeight(1);
       p.circle(smoothNoseX, smoothNoseY, REPEL_RADIUS * 2);
       p.fill(255, 0, 200);
       p.noStroke();
